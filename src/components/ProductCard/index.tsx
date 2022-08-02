@@ -7,7 +7,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
   const { _id, name, price, description } = product;
 
   return (
-    <li className="col-span-full sm:col-span-2 lg:col-span-1 group relative">
+    <li className="col-span-full sm:col-span-2 lg:col-span-1 group relative border rounded-lg shadow">
       <Link to={`/product/${_id}`} className="w-full h-full flex flex-col">
         <div className="relative">
           <div className="aspect-w-1 aspect-h-1 shadow-sm rounded-lg overflow-hidden group-hover:shadow-md">
@@ -19,12 +19,12 @@ const ProductCard = ({ product }: { product: IProduct }) => {
         <div className="flex-grow mt-2 px-3 h-full">
           <div className="relative flex flex-col">
             <h3 className="text-base text-gray-800 font-semibold">{name}</h3>
-            <p className="mt-1 text-sm text-gray-500 font-medium">
+            <p className="mt-1 text-sm text-gray-500 font-medium h-10">
               {description.length < 96
                 ? description
                 : description.substring(0, 96).concat("...")}
             </p>
-            <button className="mt-4 py-1.5 w-full rounded-md bg-gray-200 text-sm text-gray-600 font-semibold tracking-wide hover:bg-gray-300 hover:text-gray-800">
+            <button className="mt-4 mb-2 py-1.5 w-full rounded-md bg-gray-200 text-sm text-gray-600 font-semibold tracking-wide hover:bg-gray-300 hover:text-gray-800">
               View details
             </button>
           </div>
