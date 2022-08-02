@@ -10,7 +10,11 @@ const ProductImage = ({ _id }: { _id: string }) => {
   };
 
   return (
-    <LazyLoadImage src={`${API}/photo/${_id}`} onError={handlerErrorImage} />
+    <LazyLoadImage
+      className="w-[420px] h-[260px] object-cover object-center"
+      src={`${API}/photo/${_id}`}
+      onError={handlerErrorImage}
+    />
   );
 };
 

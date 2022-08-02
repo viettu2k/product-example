@@ -34,11 +34,11 @@ const Home = () => {
           </h2>
         ) : (
           <>
-            <div className="flex flex-wrap -m-4">
+            <ul className="grid grid-cols-4 gap-10">
               {products.map((product, index) => (
                 <ProductCard product={product} key={index} />
               ))}
-            </div>
+            </ul>
             <div className="mx-auto mt-5">
               <Pagination />
             </div>
