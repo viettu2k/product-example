@@ -35,7 +35,19 @@ export const getProduct = (productId: string) => {
     method: "GET",
     headers: {
       "Access-Control-Allow-Origin": "*",
-      Accept: "application/json",
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const deleteProduct = (productId: string) => {
+  return fetch(`${API}/delete-product/${productId}`, {
+    method: "DELETE",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
     },
   })
     .then((response) => {
