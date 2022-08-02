@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import DeleteProduct from "../../components/DeleteProduct";
 import ProductImage from "../../components/ProductImage";
 import { getProduct } from "../../services/apiCall";
@@ -10,6 +10,7 @@ interface IProductId {
 }
 
 const ProductDetail = () => {
+  const navigate = useNavigate();
   const [product, setProduct] = useState<IProduct>();
   const { productId }: IProductId = useParams();
 
@@ -30,6 +31,10 @@ const ProductDetail = () => {
     // eslint-disable-next-line
     []
   );
+
+  const turnback = () => {
+    return navigate("/");
+  };
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
@@ -61,7 +66,27 @@ const ProductDetail = () => {
 
               <div className="flex items-center -space-x-4 hover:space-x-1">
                 <button
-                  className="z-20 block p-4 text-teal-500 transition-all bg-blue-100 border-2 border-white rounded-full active:bg-blue-50 hover:scale-110 focus:outline-none focus:ring"
+                  className="z-10 block p-4 text-blue-700 transition-all bg-blue-100 border-2 border-white rounded-full active:bg-green-50 hover:scale-110 focus:outline-none focus:ring"
+                  type="button"
+                  title="Turn back"
+                  onClick={turnback}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-4 h-4"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </button>
+
+                <button
+                  className="z-20 block p-4 text-teal-500 transition-all bg-teal-100 border-2 border-white rounded-full active:bg-blue-50 hover:scale-110 focus:outline-none focus:ring"
                   type="button"
                   title="Edit Product"
                 >
@@ -80,7 +105,7 @@ const ProductDetail = () => {
                     />
                   </svg>
                 </button>
-                <DeleteProduct productId={productId} />
+                <DeleteProduct productId={productId} navigate={navigate} />
               </div>
             </div>
           </div>

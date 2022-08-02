@@ -4,11 +4,11 @@ import { deleteProduct } from "../../services/apiCall";
 
 interface IProductId {
   productId?: string;
+  navigate?: any;
 }
 
-const DeleteProduct = ({ productId }: IProductId) => {
+const DeleteProduct = ({ productId, navigate }: IProductId) => {
   const [redirect, setRedirect] = useState(false);
-  const navigate = useNavigate();
 
   const removeProduct = () => {
     deleteProduct(productId!).then((data) => {
