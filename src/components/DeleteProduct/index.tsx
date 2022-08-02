@@ -44,6 +44,7 @@ const DeleteProduct = ({ productId }: IProductId) => {
             className="z-30 block p-4 text-red-700 transition-all bg-red-100 border-2 border-white rounded-full hover:scale-110 focus:outline-none focus:ring active:bg-red-50"
             type="button"
             onClick={deleteConfirmed}
+            title="Delete Product"
           >
             <svg
               className="w-4 h-4"

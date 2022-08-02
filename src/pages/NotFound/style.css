@@ -10,8 +10,8 @@
 .cls-13,
 .cls-14,
 .cls-8 {
-  strokelinecap: round;
-  strokelinejoin: round;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .cls-10,
 .cls-12,
@@ -25,7 +25,7 @@
 .cls-7,
 .cls-8,
 .cls-9 {
-  strokewidth: 3px;
+  stroke-width: 3px;
 }
 .cls-10,
 .cls-12,

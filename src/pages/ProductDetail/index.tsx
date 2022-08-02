@@ -43,11 +43,6 @@ const ProductDetail = () => {
               "lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
             }
           />
-          {/* <img
-            alt="ecommerce"
-            className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-            src="https://dummyimage.com/400x400"
-          /> */}
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h2 className="text-sm title-font text-gray-500 tracking-widest">
               PRODUCT NAME
@@ -68,6 +63,7 @@ const ProductDetail = () => {
                 <button
                   className="z-20 block p-4 text-teal-500 transition-all bg-blue-100 border-2 border-white rounded-full active:bg-blue-50 hover:scale-110 focus:outline-none focus:ring"
                   type="button"
+                  title="Edit Product"
                 >
                   <svg
                     className="w-4 h-4"
