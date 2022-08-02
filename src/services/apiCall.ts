@@ -1,5 +1,4 @@
 import { API } from "./../config";
-import { Product } from "../types/product";
 
 export const getProducts = () => {
   return fetch(`${API}/get-products`, {

@@ -28,14 +28,22 @@ const Home = () => {
   return (
     <section className="text-gray-600 body-font">
       <div className="container flex flex-col mx-auto px-5 py-24">
-        <div className="flex flex-wrap -m-4">
-          {products.map((product, index) => (
-            <ProductCard product={product} key={index} />
-          ))}
-        </div>
-        <div className="mx-auto mt-5">
-          <Pagination />
-        </div>
+        {!products.length ? (
+          <h2 className="text-4xl font-bold leading-none text-gray-400 select-none lg:text-6xl text-center">
+            There are no products available
+          </h2>
+        ) : (
+          <>
+            <div className="flex flex-wrap -m-4">
+              {products.map((product, index) => (
+                <ProductCard product={product} key={index} />
+              ))}
+            </div>
+            <div className="mx-auto mt-5">
+              <Pagination />
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
