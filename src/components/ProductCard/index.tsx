@@ -7,7 +7,7 @@ const ProductCard = ({ product }: { product: IProduct }) => {
   const { _id, name, price, description } = product;
 
   return (
-    <li className="col-span-full sm:col-span-2 lg:col-span-1 group relative border rounded-lg shadow">
+    <li className="col-span-full sm:col-span-2 lg:col-span-1 group relative border border-t-4 border-teal-600 shadow-xl rounded-lg">
       <Link to={`/product/${_id}`} className="w-full h-full flex flex-col">
         <div className="relative">
           <div className="aspect-w-1 aspect-h-1 shadow-sm rounded-lg overflow-hidden group-hover:shadow-md">
