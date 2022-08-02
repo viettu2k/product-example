@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Product } from "../../types/product";
+import { IProduct } from "../../types";
 import ProductImage from "../ProductImage";
 
-const ProductCard = ({ product }: { product: Product }) => {
+const ProductCard = ({ product }: { product: IProduct }) => {
   const { _id, name, price, description } = product;
 
   return (
@@ -11,7 +11,7 @@ const ProductCard = ({ product }: { product: Product }) => {
       <Link to={`/product/${_id}`} className="w-full h-full flex flex-col">
         <div className="relative">
           <div className="aspect-w-1 aspect-h-1 shadow-sm rounded-lg overflow-hidden group-hover:shadow-md">
-            <ProductImage _id={_id} />
+            <ProductImage width={420} height={260} _id={_id} extendClass="" />
             <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-gray-800 via-transparent opacity-70 group-hover:from-transparent" />
           </div>
           <span className="z-20 absolute bottom-3 right-5 px-0.5 rounded-md text-2xl text-white font-semibold antialiased group-hover:text-gray-700 group-hover:bg-white group-hover:bg-opacity-70">{`$${price}`}</span>

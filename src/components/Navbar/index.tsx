@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
           <Link
-            className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+            className="text-md font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
             to="/"
           >
             Example
@@ -30,7 +30,7 @@ const Navbar = () => {
             <ul className="flex flex-col lg:flex-row list-none mr-auto">
               <li className="nav-item">
                 <Link
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-md uppercase font-bold leading-snug text-white hover:opacity-75"
                   to="/"
                 >
                   <span className="ml-2">Home</span>
@@ -38,7 +38,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-md uppercase font-bold leading-snug text-white hover:opacity-75"
                   to="/addProduct"
                 >
                   <span className="ml-2">Add Product</span>
@@ -54,7 +54,7 @@ const Navbar = () => {
               <input
                 autoFocus
                 type="text"
-                className="px-2 py-1 h-8 border border-solid border-teal-600 rounded-full text-sm leading-snug text-black bg-teal-100 shadow-none outline-none focus:outline-none w-full font-normal rounded-l-none flex-1 border-l-0 placeholder-black"
+                className="px-2 py-1 h-8 border border-solid border-teal-600 rounded-full text-md leading-snug text-black bg-teal-100 shadow-none outline-none focus:outline-none w-full font-normal rounded-l-none flex-1 border-l-0 placeholder-black"
                 placeholder="Search product"
               />
             </div>

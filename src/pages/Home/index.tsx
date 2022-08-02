@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
 import ProductCard from "../../components/ProductCard";
 import { getProducts } from "../../services/apiCall";
-import { Product } from "../../types/product";
+import { IProduct } from "../../types";
 
 const Home = () => {
-  const [products, setProducts] = useState<Array<Product>>([]);
+  const [products, setProducts] = useState<Array<IProduct>>([]);
 
   const init = () => {
     getProducts().then((data) => {

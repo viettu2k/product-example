@@ -1,5 +1,4 @@
 import { API } from "./../config";
-import { Product } from "./../types/product";
 
 export const getProducts = () => {
   return fetch(`${API}/get-products`, {
@@ -24,6 +23,20 @@ export const addProduct = (product: FormData) => {
       // "Content-Type": "form-data",
     },
     body: product,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getProduct = (productId: string) => {
+  return fetch(`${API}/get-product/${productId}`, {
+    method: "GET",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      Accept: "application/json",
+    },
   })
     .then((response) => {
       return response.json();

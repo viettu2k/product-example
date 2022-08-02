@@ -38,7 +38,7 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="mx-auto add-product relative min-h-screen flex justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover items-center">
+    <div className="mx-auto background-image relative min-h-screen flex justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover items-center">
       <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
       <div className="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10">
         <div className="text-center">
