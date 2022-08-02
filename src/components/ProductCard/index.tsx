@@ -1,18 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Product } from "../../types/product";
+import ProductImage from "../ProductImage";
 
-const ProductCard = ({ id }: { id: number }) => {
+const ProductCard = ({ product }: { product: Product }) => {
+  const { _id, name, price, quantity, description } = product;
+
   return (
     <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
       <Link
-        to={`/product/${id}`}
+        to={`/product/${_id}`}
         className="block relative h-48 rounded overflow-hidden"
       >
-        <img
-          alt="ecommerce"
-          className="object-cover object-center w-full h-full block"
-          src="https://dummyimage.com/420x260"
-        />
+        <ProductImage _id={_id} />
       </Link>
       <div className="mt-4">
         <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
