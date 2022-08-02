@@ -54,7 +54,9 @@ const AddProduct = () => {
               className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
               type="text"
               value={name}
+              required
               onChange={handleChange("name")}
+              minLength={6}
             />
           </div>
           <div className="grid grid-cols-1 space-y-2">
@@ -64,6 +66,7 @@ const AddProduct = () => {
             <textarea
               className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
               value={description}
+              required
               onChange={handleChange("description")}
             />
           </div>
@@ -75,6 +78,7 @@ const AddProduct = () => {
               className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
               type="number"
               value={quantity}
+              required
               onChange={handleChange("quantity")}
             />
           </div>
@@ -86,7 +90,9 @@ const AddProduct = () => {
               className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
               type="number"
               value={price}
+              required
               onChange={handleChange("price")}
+              min="0"
             />
           </div>
           <div className="grid grid-cols-1 space-y-2">

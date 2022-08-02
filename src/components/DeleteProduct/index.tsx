@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
 import { deleteProduct } from "../../services/apiCall";
 
 interface IProductId {
@@ -15,7 +14,6 @@ const DeleteProduct = ({ productId, navigate }: IProductId) => {
       if (data.error) {
         console.log(data.error);
       } else {
-        // redirect
         setRedirect(true);
       }
     });
