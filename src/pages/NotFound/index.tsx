@@ -23,7 +23,7 @@ const NotFound = () => {
 
           <Link
             to="/"
-            className="inline px-4 py-2 text-sm font-medium leading-5 text-white uppercase transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg shadow focus:outline-none focus:shadow-outline-blue active:bg-blue-600 hover:bg-blue-700"
+            className="inline px-4 py-2 text-sm font-bold leading-5 text-white uppercase transition-colors duration-150 bg-teal-600 border border-transparent rounded-lg shadow focus:outline-none focus:shadow-outline-teal active:bg-teal-600 hover:bg-teal-700"
           >
             Back to Homepage
           </Link>
@@ -50,7 +50,7 @@ const NotFound = () => {
               rx="202.22"
               ry="30.98"
               transform="rotate(-19.91 748.327 816.983)"
-              stroke-miterlimit="10"
+              strokeMiterlimit="10"
               fill="#020202"
               strokeWidth="3"
               stroke="#000"
@@ -62,7 +62,7 @@ const NotFound = () => {
             <path
               d="M1825.5 1426.5H755.25a10.75 10.75 0 00-10.75 10.75h0a10.75 10.75 0 0010.75 10.75H1815a10.75 10.75 0 0010.74-11l-.24-10.5"
               fill="#dcdbda"
-              stroke-miterlimit="10"
+              strokeMiterlimit="10"
               strokeWidth="3"
               stroke="#000"
             />

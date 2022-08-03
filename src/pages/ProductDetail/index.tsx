@@ -29,6 +29,10 @@ const ProductDetail = () => {
   useEffect(
     () => {
       init();
+      if (productId && productId?.length !== 24) {
+        console.log(productId);
+        return navigate("/not-found");
+      }
     },
     // eslint-disable-next-line
     []
