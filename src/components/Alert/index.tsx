@@ -1,19 +1,24 @@
 import React from "react";
 
-const Alert = ({ message, success }: { message: string; success: boolean }) => {
+interface IAlert {
+  message: string;
+  isSuccess: boolean;
+}
+
+const Alert = ({ message, isSuccess }: IAlert) => {
   return (
     <>
       {message && message.length > 0 && (
         <div
-          className={`absolute z-10 right-0 flex items-center justify-between gap-4 p-4 ${
-            success ? "text-green-700" : "text-red-700"
+          className={`absolute z-50 right-0 flex items-center justify-between gap-4 p-4 ${
+            isSuccess ? "text-green-700" : "text-red-700"
           } border rounded border-green-900/10 bg-blue-50`}
           role="alert"
         >
           <div className="flex items-center gap-4">
             <span
               className={`p-2 text-white ${
-                success ? "bg-green-600" : "bg-red-600"
+                isSuccess ? "bg-green-600" : "bg-red-600"
               } rounded-full`}
             >
               <svg
@@ -24,7 +29,7 @@ const Alert = ({ message, success }: { message: string; success: boolean }) => {
                 stroke="currentColor"
                 strokeWidth="2"
               >
-                {success ? (
+                {isSuccess ? (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -42,7 +47,7 @@ const Alert = ({ message, success }: { message: string; success: boolean }) => {
 
             <p>
               <strong className="text-sm font-medium">
-                {success ? "Success" : "Warning"}
+                {isSuccess ? "Success" : "Danger"}
               </strong>
               <span className="block text-xs opacity-90">{message}</span>
             </p>

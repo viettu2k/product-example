@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { deleteProduct } from "../../services/apiCall";
 
-interface IProductId {
+interface IProps {
   productId?: string;
   navigate?: any;
+  setMessage(message: string): void;
+  setIsSuccess(isSuccess: boolean): void;
 }
 
-const DeleteProduct = ({ productId, navigate }: IProductId) => {
+const DeleteProduct = ({
+  productId,
+  navigate,
+  setMessage,
+  setIsSuccess,
+}: IProps) => {
   const [redirect, setRedirect] = useState(false);
 
   const removeProduct = () => {
     deleteProduct(productId!).then((data) => {
       if (data.error) {
-        console.log(data.error);
+        setMessage(data.error);
+        setIsSuccess(false);
       } else {
-        setRedirect(true);
+        setMessage(data.message);
+        setIsSuccess(true);
+        setTimeout(() => {
+          setRedirect(true);
+        }, 2000);
       }
     });
   };

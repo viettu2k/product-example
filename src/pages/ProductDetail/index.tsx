@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import Alert from "../../components/Alert";
 import DeleteProduct from "../../components/DeleteProduct";
 import EditProduct from "../../components/EditProduct";
 import ProductImage from "../../components/ProductImage";
@@ -15,11 +16,14 @@ const ProductDetail = () => {
   const [product, setProduct] = useState<IProduct>();
   const { productId }: IProductId = useParams();
   const [openEdit, setOpenEdit] = useState(false);
+  const [message, setMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const init = () => {
     getProduct(productId!).then((data) => {
       if (data.error) {
-        console.log(data.error);
+        setMessage(data.error);
+        setIsSuccess(false);
       } else {
         setProduct(data);
       }
@@ -30,7 +34,6 @@ const ProductDetail = () => {
     () => {
       init();
       if (productId && productId?.length !== 24) {
-        console.log(productId);
         return navigate("/not-found");
       }
     },
@@ -44,7 +47,15 @@ const ProductDetail = () => {
 
   return (
     <>
-      {openEdit && <EditProduct setOpenEdit={setOpenEdit} product={product!} />}
+      <Alert message={message} isSuccess={isSuccess} />
+      {openEdit && (
+        <EditProduct
+          setOpenEdit={setOpenEdit}
+          product={product!}
+          setMessage={setMessage}
+          setIsSuccess={setIsSuccess}
+        />
+      )}
       <section className="text-gray-600 body-font overflow-hidden">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
@@ -70,8 +81,8 @@ const ProductDetail = () => {
               <div className="flex mt-3 justify-between">
                 <span className="flex items-center title-font font-medium text-2xl text-gray-900">
                   <span title="Price">${product?.price}</span>
-                  <span className="ml-3" title="Quanity">
-                    {product?.quantity} <i className="fa-solid fa-box"></i>{" "}
+                  <span className="ml-5" title="Quanity">
+                    <i className="fa-solid fa-box"></i> {product?.quantity}
                   </span>
                 </span>
                 <div className="flex items-center -space-x-4 hover:space-x-1">
@@ -116,7 +127,12 @@ const ProductDetail = () => {
                       />
                     </svg>
                   </button>
-                  <DeleteProduct productId={productId} navigate={navigate} />
+                  <DeleteProduct
+                    setMessage={setMessage}
+                    setIsSuccess={setIsSuccess}
+                    productId={productId}
+                    navigate={navigate}
+                  />
                 </div>
               </div>
             </div>

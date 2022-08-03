@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Alert from "../../components/SuccessAlert";
-import SuccessAlert from "../../components/SuccessAlert";
+import Alert from "../../components/Alert";
 import { addProduct } from "../../services/apiCall";
 import "./style.css";
 
@@ -10,13 +9,13 @@ const AddProduct = () => {
     description: "",
     quantity: 0,
     price: 0,
-    error: "",
-    success: "",
+    isSuccess: true,
+    message: "",
     fileSize: 0,
     formData: new FormData(),
   });
 
-  const { name, description, quantity, price, error, success, formData } =
+  const { name, description, quantity, price, message, isSuccess, formData } =
     values;
 
   const handleChange = (valueName: string) => (event: any) => {
@@ -28,7 +27,7 @@ const AddProduct = () => {
       ...values,
       [valueName]: value,
       fileSize: imageSize,
-      error: "",
+      message: "",
     });
   };
 
@@ -36,12 +35,12 @@ const AddProduct = () => {
     event.preventDefault();
     addProduct(formData).then((response) => {
       if (response.error) {
-        setValues({ ...values, error: response.error });
+        setValues({ ...values, message: response.error, isSuccess: false });
       } else {
         setValues({
           ...values,
-
-          success: "Product added successfully!",
+          message: "Product added successfully!",
+          isSuccess: true,
         });
         setTimeout(() => {
           setValues({
@@ -50,11 +49,15 @@ const AddProduct = () => {
             description: "",
             quantity: 0,
             price: 0,
-            error: "",
-            success: "",
+            message: "",
+            isSuccess: false,
             fileSize: 0,
             formData: new FormData(),
           });
+          const getInputFile = document.getElementById(
+            "file_input"
+          ) as HTMLInputElement;
+          getInputFile.value = "";
         }, 3000);
       }
     });
@@ -62,7 +65,7 @@ const AddProduct = () => {
 
   return (
     <>
-      <Alert message={success} success />
+      <Alert message={message} isSuccess={isSuccess} />
       <div className="mx-auto background-image relative min-h-screen flex justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover items-center">
         <div className="absolute bg-black opacity-60 inset-0 z-0"></div>
         <div className="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10">

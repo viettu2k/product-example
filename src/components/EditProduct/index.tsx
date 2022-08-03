@@ -2,21 +2,25 @@ import React, { useState } from "react";
 import { editProduct } from "../../services/apiCall";
 import { IProduct } from "../../types";
 
+interface IProps {
+  product: IProduct;
+  setOpenEdit(value: boolean): void;
+  setMessage(message: string): void;
+  setIsSuccess(isSuccess: boolean): void;
+}
+
 const EditProduct = ({
   setOpenEdit,
   product,
-}: {
-  setOpenEdit(value: boolean): void;
-  product: IProduct;
-}) => {
+  setMessage,
+  setIsSuccess,
+}: IProps) => {
   const [values, setValues] = useState({
     productId: product._id,
     name: product.name,
     description: product.description,
     quantity: product.quantity,
     price: product.price,
-    error: "",
-    success: "",
     fileSize: 0,
     formData: new FormData(),
   });
@@ -31,14 +35,23 @@ const EditProduct = ({
       ...values,
       [valueName]: value,
       fileSize: imageSize,
-      error: "",
     });
+    setMessage("");
   };
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
     editProduct(productId, formData).then((response) => {
-      console.log(response);
+      if (response.error) {
+        setMessage(response.error);
+        setIsSuccess(false);
+      } else {
+        setMessage("Product edited successfully! The page will be reloaded.");
+        setIsSuccess(true);
+        setTimeout(() => {
+          return window.location.reload();
+        }, 3000);
+      }
     });
   };
 
