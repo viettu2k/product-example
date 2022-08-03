@@ -5,7 +5,6 @@ export const getProducts = () => {
     method: "GET",
     headers: {
       "Access-Control-Allow-Origin": "*",
-      Accept: "application/json",
     },
   })
     .then((response) => {
@@ -19,8 +18,6 @@ export const addProduct = (product: FormData) => {
     method: "POST",
     headers: {
       "Access-Control-Allow-Origin": "*",
-      // Accept: "form-data",
-      // "Content-Type": "form-data",
     },
     body: product,
   })
@@ -49,6 +46,20 @@ export const deleteProduct = (productId: string) => {
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const editProduct = (productId: string, product: FormData) => {
+  return fetch(`${API}/edit-product/${productId}`, {
+    method: "PUT",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+    body: product,
   })
     .then((response) => {
       return response.json();
