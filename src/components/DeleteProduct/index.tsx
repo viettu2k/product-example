@@ -22,11 +22,11 @@ const DeleteProduct = ({
         setMessage(data.error);
         setIsSuccess(false);
       } else {
-        setMessage(data.message);
+        setMessage(data.message + ". You will be redirected to the home page.");
         setIsSuccess(true);
         setTimeout(() => {
           setRedirect(true);
-        }, 2000);
+        }, 3000);
       }
     });
   };
