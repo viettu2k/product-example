@@ -49,7 +49,7 @@ const Home = () => {
               <input
                 type="text"
                 id="simple-search"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-400 focus:border-teal-400 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-teal-400 block w-full pl-10 p-2.5  dark:bg-gray-700"
                 placeholder="Search"
                 autoFocus
                 required
@@ -57,7 +57,7 @@ const Home = () => {
             </div>
             <button
               type="submit"
-              className="p-2.5 ml-2 text-sm font-medium text-white bg-teal-700 rounded-lg border border-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
+              className="p-2.5 ml-2 text-sm font-medium text-white bg-teal-700 rounded-lg border border-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300"
             >
               <svg
                 className="w-5 h-5"

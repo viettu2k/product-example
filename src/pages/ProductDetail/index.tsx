@@ -64,10 +64,12 @@ const ProductDetail = () => {
               </h2>
               <p className="leading-relaxed">{product?.description}</p>
               <div className="flex mt-3 justify-between">
-                <span className="title-font font-medium text-2xl text-gray-900">
-                  ${product?.price}
+                <span className="flex items-center title-font font-medium text-2xl text-gray-900">
+                  <span title="Price">${product?.price}</span>
+                  <span className="ml-3" title="Quanity">
+                    {product?.quantity} <i className="fa-solid fa-box"></i>{" "}
+                  </span>
                 </span>
-
                 <div className="flex items-center -space-x-4 hover:space-x-1">
                   <button
                     className="z-10 block p-4 text-blue-700 transition-all bg-blue-100 border-2 border-white rounded-full active:bg-green-50 hover:scale-110 focus:outline-none focus:ring"

@@ -51,7 +51,7 @@ const AddProduct = () => {
             </label>
             <input
               autoFocus
-              className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+              className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500"
               type="text"
               value={name}
               required
@@ -64,7 +64,7 @@ const AddProduct = () => {
               Description
             </label>
             <textarea
-              className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+              className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500"
               value={description}
               required
               onChange={handleChange("description")}
@@ -75,10 +75,11 @@ const AddProduct = () => {
               Quantity
             </label>
             <input
-              className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+              className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500"
               type="number"
               value={quantity}
               required
+              min={0}
               onChange={handleChange("quantity")}
             />
           </div>
@@ -87,12 +88,12 @@ const AddProduct = () => {
               Price
             </label>
             <input
-              className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+              className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500"
               type="number"
               value={price}
               required
               onChange={handleChange("price")}
-              min="0"
+              min={0}
             />
           </div>
           <div className="grid grid-cols-1 space-y-2">
@@ -101,7 +102,7 @@ const AddProduct = () => {
             </label>
             <input
               onChange={handleChange("photo")}
-              className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+              className="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500"
               id="file_input"
               type="file"
               accept="image/*"
